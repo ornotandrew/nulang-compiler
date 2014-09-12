@@ -1,0 +1,10 @@
+Start
+	Program
+		Statement
+			ID,x
+			=
+			CasetermExpression
+				CasefactorTerm
+					CasefloatFactor
+						FLOAT_LITERAL,1
+	

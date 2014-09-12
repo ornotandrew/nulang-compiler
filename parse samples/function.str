@@ -1,0 +1,24 @@
+Start
+	Program
+		Functiondecl
+			Functionhead
+				FUNC
+				ID,square_num
+				(
+				ID,n
+				)
+			Functionbody
+				{
+				Statement
+					ID,square
+					=
+					CasetermExpression
+						CasemultiplyTerm
+							CasefactorTerm
+								CaseidFactor
+									ID,n
+							*
+							CaseidFactor
+								ID,n
+				}
+	
