@@ -1,5 +1,6 @@
 import ply.lex as lex
 import sys
+from exceptions import LexerException
 
 # List of token names.
 reserved = {"func": "FUNC"}
@@ -22,7 +23,7 @@ tokens = [
 
 
 # Regular expression rules for simple tokens
-t_FLOAT_LITERAL = r'[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?'
+t_FLOAT_LITERAL = r'[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?'
 t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
@@ -35,13 +36,14 @@ t_RBRAC = r'\}'
 
 
 def t_ID(t):
-    r'([A-z]|_)(\w|_|)*'
+    r'([A-Za-z]|_)(\w|_|)*'
     t.type = reserved.get(t.value, 'ID')    # Check for reserved words
     return t
 
 
 def t_WHITESPACE(t):
     r'\s+'
+    inc_lineno(t)
     if __name__ == "__main__":
         return t
     else:
@@ -50,18 +52,26 @@ def t_WHITESPACE(t):
 
 def t_COMMENT(t):
     r'\/\*[\s\S]*\*\/|\/\/.*'
+    inc_lineno(t)
     if __name__ == "__main__":
         return t
     else:
         pass
 
+
+def inc_lineno(t):
+    '''Guard to make sure line numbers are correct'''
+    t.lexer.lineno += t.value.count("\n")
+
+
 # Error handling rule
 def t_error(t):
-    print("Illegal character '%s'" % t.value[0])
+    raise LexerException(t.lineno, t)
     t.lexer.skip(1)
 
 # Build the lexer
 lexer = lex.lex()
+
 
 if __name__ == "__main__":
         # Give the file data to the lexer

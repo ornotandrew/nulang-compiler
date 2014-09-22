@@ -1,0 +1,27 @@
+Start
+	Program
+		AssignStatement
+			ID,radius
+			FloatExpression
+				FLOAT_LITERAL,4
+		AssignStatement
+			ID,area
+			MulExpression
+				MulExpression
+					FloatExpression
+						FLOAT_LITERAL,3.14
+					IdentifierExpression
+						ID,radius
+				IdentifierExpression
+					ID,radius
+		AssignStatement
+			ID,circumference
+			MulExpression
+				MulExpression
+					FloatExpression
+						FLOAT_LITERAL,2
+					FloatExpression
+						FLOAT_LITERAL,3.14
+				IdentifierExpression
+					ID,radius
+	

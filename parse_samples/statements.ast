@@ -1,0 +1,18 @@
+Start
+	Program
+		AssignStatement
+			ID,val1
+			FloatExpression
+				FLOAT_LITERAL,12.34
+		AssignStatement
+			ID,val2
+			FloatExpression
+				FLOAT_LITERAL,56.78
+		AssignStatement
+			ID,total
+			AddExpression
+				IdentifierExpression
+					ID,val1
+				IdentifierExpression
+					ID,val2
+	

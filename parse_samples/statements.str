@@ -1,0 +1,29 @@
+Start
+	Program
+		Statement
+			ID,val1
+			=
+			CasetermExpression
+				CasefactorTerm
+					CasefloatFactor
+						FLOAT_LITERAL,12.34
+		Statement
+			ID,val2
+			=
+			CasetermExpression
+				CasefactorTerm
+					CasefloatFactor
+						FLOAT_LITERAL,56.78
+		Statement
+			ID,total
+			=
+			CaseplusExpression
+				CasetermExpression
+					CasefactorTerm
+						CaseidFactor
+							ID,val1
+				+
+				CasefactorTerm
+					CaseidFactor
+						ID,val2
+	

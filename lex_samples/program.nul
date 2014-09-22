@@ -1,0 +1,11 @@
+/* this program
+calculates a
+circles area */
+
+func circle_area(r)
+{
+	area = 3.14 * r * r // formula
+}
+
+my_circle_radius = 4
+my_circle_area = circle_area(my_circle_radius)

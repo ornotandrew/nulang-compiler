@@ -1,5 +1,0 @@
-// square number
-func square_num(n)
-{
-	square = n * n 
-}
